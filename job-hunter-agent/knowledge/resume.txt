@@ -1,0 +1,76 @@
+======================================================================
+RESUME: SENIOR FLUTTER DEVELOPER & MOBILE ARCHITECT
+======================================================================
+
+CONTACT INFORMATION
+-------------------
+* Name: Min-woo Kim (김민우)
+* Email: minwoo.kim.dev@email.com
+* Phone: +82-10-1234-5678
+* GitHub: github.com/minwoo-flutter-expert
+* Location: Seoul, South Korea
+
+PROFESSIONAL SUMMARY
+--------------------
+Highly skilled Senior Mobile Application Engineer with over 8 years of professional software development experience, specializing in Flutter and Dart ecosystems for the past 5 years. Proven track record of architecting, building, and scaling high-performance, cross-platform applications for iOS and Android. Expert in state management, custom UI rendering, CI/CD pipelines, and integrating native modules. Led engineering teams of 5-10 developers, establishing clean code architecture (Clean Architecture, BLoC, Riverpod) and driving agile development practices.
+
+TECHNICAL SKILLS
+----------------
+* Languages: Dart, JavaScript, TypeScript, Kotlin, Swift, Python
+* Frameworks: Flutter (Expert), React Native, Android SDK, iOS SDK
+* State Management: BLoC, Riverpod, Provider, GetX
+* Architecture: Clean Architecture, DDD (Domain-Driven Design), MVVM
+* Database & Backend: Firebase, Supabase, SQLite, Hive, RESTful APIs, GraphQL
+* DevOps & Tools: Git, GitHub Actions, Codemagic, Bitrise, Docker, Fastlane
+* Testing: Unit Test, Widget Test, Integration Test, Mocktail
+
+PROFESSIONAL EXPERIENCE
+-----------------------
+
+1. Lead Flutter Engineer | TechHive Solutions (Seoul, South Korea)
+   Period: March 2023 - Present (Current)
+   * Role & Responsibilities:
+     - Serve as the technical lead for the company's core fintech mobile application.
+     - Architected the application from scratch using Flutter, ensuring a 99.8% crash-free rate for over 500,000 monthly active users (MAU).
+     - Spearheaded the migration of legacy codebase from Provider to Riverpod, improving code maintainability and reducing state-related bugs by 40%.
+     - Implemented dynamic custom painters and smooth 60fps animations for financial data visualization.
+     - Developed custom native channels (MethodChannel) to integrate proprietary security SDKs for both iOS (Swift) and Android (Kotlin).
+     - Mentored 4 junior/mid-level developers, conducting rigorous code reviews and engineering seminars.
+
+2. Senior Mobile Developer | Global Commerce Corp
+   Period: June 2021 - February 2023
+   * Role & Responsibilities:
+     - Managed the cross-platform localization and optimization of a large-scale E-commerce application using Flutter.
+     - Optimized application size by 35% through deferred loading, asset optimization, and ProGuard configuration.
+     - Established a fully automated CI/CD pipeline using GitHub Actions and Codemagic, reducing deployment time to App Store and Google Play by 60%.
+     - Integrated complex payment gateways (IAP, PortOne) and deep-linking mechanisms for marketing campaigns.
+     - Utilized Hive for local caching, enabling seamless offline capabilities for product catalogs.
+
+3. Mobile App Developer | NextGen Software
+   Period: January 2018 - May 2021
+   * Role & Responsibilities:
+     - Started as a Native Android Developer (Kotlin) and transitioned into full-time Flutter development in 2019.
+     - Successfully delivered 3 cross-platform client projects (O2O service, Social Networking App, and Healthcare Tracker).
+     - Leveraged BLoC pattern to separate business logic from UI, resulting in highly testable components (achieved 85% test coverage).
+     - Worked closely with UI/UX designers to implement pixel-perfect responsive designs across various screen sizes and aspect ratios.
+
+KEY PROJECTS
+------------
+* Project Alpha (Fintech App)
+  - Tech Stack: Flutter, Dart, Riverpod, Clean Architecture, Supabase, Firebase Auth
+  - Summary: A secure, high-transaction micro-investment platform. Implemented biometrics authentication, real-time stock charts via WebSockets, and encrypted local storage.
+  
+* Global Shop (E-Commerce App)
+  - Tech Stack: Flutter, BLoC, GraphQL, Hive, Codemagic, Fastlane
+  - Summary: A multi-lingual e-commerce platform operating in 5 countries. Features localized checkout flows, push notification triggers via FCM, and advanced search filters.
+
+EDUCATION
+---------
+* Bachelor of Science in Computer Science and Engineering
+  - Hankook University, Seoul, South Korea (March 2010 - February 2016)
+
+CERTIFICATIONS & LANGUAGES
+--------------------------
+* Languages: Korean (Native), English (Professional Working Proficiency)
+* Certifications: AWS Certified Solutions Architect – Associate (2024)
+======================================================================

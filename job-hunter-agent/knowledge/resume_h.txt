@@ -1,0 +1,76 @@
+======================================================================
+이력서: 시니어 플러터 개발자 & 모바일 아키텍트 (SENIOR FLUTTER DEVELOPER)
+======================================================================
+
+인적 사항
+---------
+* 성명: 김민우 (Min-woo Kim)
+* 이메일: minwoo.kim.dev@email.com
+* 전화번호: 010-1234-5678
+* 깃허브: github.com/minwoo-flutter-expert
+* 거주지: 대한민국 서울
+
+전문가 프로필
+-------------
+총 8년 이상의 전문 소프트웨어 개발 경력을 보유하고 있으며, 최근 5년 동안은 Flutter 및 Dart 생태계를 전 전문적으로 다뤄온 시니어 모바일 애플리케이션 엔지니어입니다. iOS와 Android 양대 플랫폼에서 고성능 크로스 플랫폼 앱을 설계, 구축 및 확장한 탄탄한 경험이 있습니다. 상태 관리, 커스텀 UI 렌더링, CI/CD 파이프라인 구축, 네이티브 모듈 연동(MethodChannel)에 능숙합니다. 5~10명 규모의 개발 팀을 리드하며 Clean Architecture, BLoC, Riverpod 등의 아키텍트를 도입하고 애자일(Agile) 개발 문화를 주도했습니다.
+
+기술 스택 (TECHNICAL SKILLS)
+---------------------------
+* 프로그래밍 언어: Dart, JavaScript, TypeScript, Kotlin, Swift, Python
+* 프레임워크: Flutter (전문가 수준), React Native, Android SDK, iOS SDK
+* 상태 관리: BLoC, Riverpod, Provider, GetX
+* 아키텍처: Clean Architecture, DDD (도메인 주도 설계), MVVM
+* 데이터베이스 & 백엔드: Firebase, Supabase, SQLite, Hive, RESTful APIs, GraphQL
+* 데브옵스 & 툴: Git, GitHub Actions, Codemagic, Bitrise, Docker, Fastlane
+* 테스트: Unit Test (단위 테스트), Widget Test, Integration Test, Mocktail
+
+주요 경력 사항
+--------------
+
+1. 테크하이브 솔루션 (TechHive Solutions) | 리드 플러터 엔지니어
+   근무 기간: 2023년 3월 ~ 현재 재직 중
+   * 주요 역할 및 성과:
+     - 자사 핵심 핀테크 모바일 애플리케이션의 테크니컬 리드(Tech Lead) 수행.
+     - Flutter 기반으로 앱을 제로베이스에서 설계 및 출시, 월간 활성 사용자(MAU) 50만 명 이상 환경에서 Crash-Free Rate 99.8% 유지.
+     - 레거시 코드베이스를 Provider에서 Riverpod으로 마이그레이션 주도, 코드 유지보수성 향상 및 상태 관련 버그 40% 감소.
+     - 금융 데이터 시각화를 위한 동적 Custom Painter 구현 및 부드러운 60fps 애니메이션 적용.
+     - iOS(Swift) 및 Android(Kotlin)의 보안 SDK 연동을 위한 자체 네이티브 채널(MethodChannel) 개발.
+     - 4명의 주니어/미들급 개발자 멘토링, 코드 리뷰 및 사내 기술 세미나 주도.
+
+2. 글로벌 커머스 코퍼레이션 (Global Commerce Corp) | 시니어 모바일 개발자
+   근무 기간: 2021년 6월 ~ 2023년 2월
+   * 주요 역할 및 성과:
+     - Flutter를 활용한 대규모 이커머스(E-commerce) 앱의 크로스 플랫폼 글로벌 지역화 및 최적화 프로세스 총괄.
+     - 디퍼드 로딩(Deferred Loading), 에셋 최적화, ProGuard 설정을 통해 앱 설치 크기 35% 감소.
+     - GitHub Actions와 Codemagic을 활용한 완전 자동화 CI/CD 파이프라인을 구축하여 App Store 및 Google Play 배포 시간을 60% 단축.
+     - 복잡한 결제 게이트웨이(인앱 결제, 포트원) 및 마케팅 캠페인용 딥링크(Deep-linking) 시스템 연동.
+     - Hive를 활용한 로컬 캐싱 시스템 구축으로 상품 카탈로그의 안정적인 오프라인 기능 구현.
+
+3. 넥스트젠 소프트웨어 (NextGen Software) | 모바일 앱 개발자
+   근무 기간: 2018년 1월 ~ 2021년 5월
+   * 주요 역할 및 성과:
+     - 네이티브 안드로이드 개발자(Kotlin)로 입사 후, 2019년부터 Flutter 풀타임 개발자로 전환.
+     - O2O 서비스, 소셜 네트워킹 앱, 헬스케어 트래커 등 3개의 크로스 플랫폼 클라이언트 프로젝트 성공적 출시.
+     - BLoC 패턴을 적용하여 UI와 비즈니스 로직을 완벽히 분리, 테스트 용이한 컴포넌트 설계 (테스트 커버리지 85% 달성).
+     - UI/UX 디자이너와 협업하여 다양한 화면 크기와 해상도에 대응하는 픽셀 퍼펙트 반응형 디자인 구현.
+
+주요 프로젝트 경험
+------------------
+* 프로젝트 알파 (Project Alpha) - 핀테크 앱
+  - 사용 기술: Flutter, Dart, Riverpod, Clean Architecture, Supabase, Firebase Auth
+  - 내용: 보안성이 핵심인 고빈도 소액 투자 플랫폼. 생체 인증(Biometrics), WebSockets 기반 실시간 주식 차트, 암호화 로컬 스토리지 구현.
+  
+* 글로벌 숍 (Global Shop) - 이커머스 앱
+  - 사용 기술: Flutter, BLoC, GraphQL, Hive, Codemagic, Fastlane
+  - 내용: 5개국에서 운영되는 다국적 쇼핑 플랫폼. 국가별 현지화된 결제 프로세스, FCM 기반 푸시 알림 트리거, 고급 검색 필터 기능 개발.
+
+학력 사항
+---------
+* 한국대학교 컴퓨터공학과 학사 졸업
+  - 재학 기간: 2010년 3월 ~ 2016년 2월
+
+자격증 및 외국어 능력
+---------------------
+* 어학: 한국어 (원어민), 영어 (비즈니스 회화 가능)
+* 자격증: AWS Certified Solutions Architect – Associate (2024년 취득)
+======================================================================
