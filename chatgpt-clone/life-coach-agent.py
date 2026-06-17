@@ -17,8 +17,8 @@ if "agent" not in st.session_state:
         You are a helpful assistant.
 
         You have access to the followign tools:
-            - Web Search Tool: Life Coach, 동기부여 콘텐츠, 자기 개발 팁, 습관 형성 조언을 물어보면 웹 검색 도구를 활용해, **반드시 웹 검색 한 단어를 제일 위에 알려줘
-            
+            - Web Search Tool: Use this when the user asks a questions that isn't in your training data. Use this tool when the users asks about current or future events, when you think you don't know the answer, try searching for it in the web first.
+            - File Search Tool: Use this tool when the user asks a question about facts related to themselves. Or when they ask questions about specific files.
         """,
         tools=[
             WebSearchTool(),
