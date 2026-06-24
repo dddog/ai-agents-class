@@ -2,6 +2,7 @@ from agents import Agent, RunContextWrapper, handoff
 from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
 from agents.extensions import handoff_filters
 from restaurant_bot.models import RestaurantContext, HandoffData
+from restaurant_bot.guardrails import restaurant_input_guardrail, restaurant_output_guardrail
 import streamlit as st
 
 # Helper for handoff with UI notification
@@ -39,6 +40,8 @@ menu_agent = Agent(
     
     Be polite and helpful. If the user wants to order or make a reservation, tell them you'll hand them off to the right specialist.
     """,
+    input_guardrails=[restaurant_input_guardrail],
+    output_guardrails=[restaurant_output_guardrail],
 )
 
 # 2. Order Agent
@@ -55,6 +58,8 @@ order_agent = Agent(
     If the user asks about ingredients or menu details, hand them back to the Menu Specialist.
     If they want a reservation, hand them to the Reservation Specialist.
     """,
+    input_guardrails=[restaurant_input_guardrail],
+    output_guardrails=[restaurant_output_guardrail],
 )
 
 # 3. Reservation Agent
@@ -70,6 +75,29 @@ reservation_agent = Agent(
     
     If the user asks about the menu, hand them to the Menu Specialist.
     """,
+    input_guardrails=[restaurant_input_guardrail],
+    output_guardrails=[restaurant_output_guardrail],
+)
+
+# 3.5 Complaints Agent
+complaints_agent = Agent(
+    name="Complaints Agent",
+    instructions="""
+    You are a Complaints Specialist at our restaurant.
+    Your job is to handle customer complaints and resolve their issues with empathy, care, and professionalism.
+    
+    Guidelines:
+    1. Acknowledge and empathize with the customer's complaint or dissatisfaction first.
+    2. Propose concrete solutions:
+       - Refund (환불)
+       - 50% discount on their next visit (다음 방문 시 50% 할인 제공)
+       - Manager callback (매니저가 직접 연락하여 해결하도록 함)
+    3. Escalate severe issues appropriately.
+    
+    Always maintain a professional, polite, and caring tone. Speak in the customer's preferred language (Korean).
+    """,
+    input_guardrails=[restaurant_input_guardrail],
+    output_guardrails=[restaurant_output_guardrail],
 )
 
 # 4. Triage Agent
@@ -84,6 +112,7 @@ def triage_instructions(wrapper: RunContextWrapper[RestaurantContext], agent: Ag
     - Menu Agent: For menu questions, ingredients, allergies.
     - Order Agent: To place an order or check order status.
     - Reservation Agent: To book a table.
+    - Complaints Agent: For customer complaints, bad experiences, or food/service issues.
     
     Always address the customer by their name. 
     Before handing off, briefly explain that you are connecting them to a specialist.
@@ -92,9 +121,13 @@ def triage_instructions(wrapper: RunContextWrapper[RestaurantContext], agent: Ag
 triage_agent = Agent(
     name="Triage Agent",
     instructions=triage_instructions,
+    input_guardrails=[restaurant_input_guardrail],
+    output_guardrails=[restaurant_output_guardrail],
     handoffs=[
         make_handoff(menu_agent),
         make_handoff(order_agent),
         make_handoff(reservation_agent),
+        make_handoff(complaints_agent),
     ],
 )
+

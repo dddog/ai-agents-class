@@ -7,7 +7,7 @@ import dotenv
 import asyncio
 import streamlit as st
 from openai import OpenAI
-from agents import Runner, SQLiteSession, InputGuardrailTripwireTriggered
+from agents import Runner, SQLiteSession, InputGuardrailTripwireTriggered, OutputGuardrailTripwireTriggered
 from restaurant_bot.models import RestaurantContext
 from restaurant_bot.agent_definitions import triage_agent
 
@@ -86,7 +86,9 @@ async def run_agent(message):
                         response = ""
 
         except InputGuardrailTripwireTriggered:
-            st.error("보안 정책상 처리할 수 없는 요청입니다.")
+            st.write("저는 레스토랑 관련 질문에 대해서만 도와드리고 있어요. 메뉴를 확인하거나, 예약하거나, 음식을 주문할 수 있어요.")
+        except OutputGuardrailTripwireTriggered:
+            st.write("죄송합니다. 보안 및 운영 정책에 따라 해당 답변을 제공할 수 없습니다.")
 
 async def main():
     await paint_history()
