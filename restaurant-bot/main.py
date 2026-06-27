@@ -8,14 +8,18 @@ import streamlit as st
 from agents import Runner, SQLiteSession, InputGuardrailTripwireTriggered, OutputGuardrailTripwireTriggered
 from models import UserAccountContext
 from my_agents.triage_agent import triage_agent
+from my_agents.account_agent import account_agent
+from my_agents.billing_agent import billing_agent
+from my_agents.order_agent import order_agent
+from my_agents.technical_agent import technical_agent
 
 # OpenAI 클라이언트 초기화
 client = OpenAI()
 
-# 기본 로그인 상태를 시뮬레이션하기 위한 사용자 계정 컨텍스트 정의
+# 기본 로그인 상태를 시뮬레이션하기 위한 사용자 계정 컨텍스트 정의 (무협 컨셉 반영)
 user_account_ctx = UserAccountContext(
     customer_id=1,
-    name="nico",
+    name="대협",
     tier="basic",
 )
 
@@ -44,7 +48,7 @@ async def paint_history():
                 else:
                     if message["type"] == "message":
                         # $ 기호가 Streamlit LaTeX 수식 렌더러와 충돌하지 않도록 이스케이프 처리
-                        st.write(message["content"][0]["text"].replace("$", "\$"))
+                        st.write(message["content"][0]["text"].replace("$", r"\$"))
 
 
 # 저장된 이전 대화 렌더링 실행
@@ -76,7 +80,7 @@ async def run_agent(message):
                     if event.data.type == "response.output_text.delta":
                         response += event.data.delta
                         # 스트림 텍스트를 실시간으로 화면에 렌더링
-                        text_placeholder.write(response.replace("$", "\$"))
+                        text_placeholder.write(response.replace("$", r"\$"))
 
                 # 실행 에이전트가 Handoff에 의해 변경되는 이벤트 처리
                 elif event.type == "agent_updated_stream_event":
@@ -84,7 +88,7 @@ async def run_agent(message):
                     if st.session_state["agent"].name != event.new_agent.name:
                         
                         # 에이전트 전환 사실을 UI에 표기
-                        st.write(f"🤖 Transfered from {st.session_state['agent'].name} to {event.new_agent.name}")
+                        st.write(f"🤖 {event.new_agent.name} 점원이 대협의 기별을 받고 속히 달려왔소.")
 
                         # 세션 내 활성 에이전트 업데이트 및 출력 컨테이너 리셋
                         st.session_state["agent"] = event.new_agent
@@ -94,16 +98,16 @@ async def run_agent(message):
 
         # 입력 가드레일(부적절한 질문 차단 등)이 트리거되었을 때의 예외 처리
         except InputGuardrailTripwireTriggered:
-            st.write("I can't help you with that.")
+            st.write("점소이: 대협, 질문하신 용건은 용문객잔에서 응대해 드릴 수 없는 것이오. 혹은 험한 말씀을 거두어 주시구려.")
 
         # 출력 가드레일(부적절한 응답 차단 등)이 트리거되었을 때의 예외 처리
         except OutputGuardrailTripwireTriggered:
-            st.write("Cant show you that answer.")
+            st.write("점소이: 주화입마를 방지하기 위해 이 대답은 들려드릴 수 없구려.")
             st.session_state["text_placeholder"].empty()
 
 # 사용자 입력창 생성
 message = st.chat_input(
-    "Write a message for your assistant",
+    "용문객잔 점소이에게 말 건네기...",
 )
 
 # 사용자가 새로운 메시지를 입력하면 동작 수행
@@ -118,7 +122,9 @@ if message:
 
 # 사이드바 설정 (대화 기록 리셋 기능 및 현재 원시 세션 데이터 조회 기능 제공)
 with st.sidebar:
-    reset = st.button("Reset memory")
+    st.title("용문객잔 (龍門客棧) 🐉")
+    reset = st.button("기억 초기화 (Reset)")
     if reset:
         asyncio.run(session.clear_session())
-    st.write(asyncio.run(session.get_items()))
+    st.write("대협의 발자취:")
+    st.write(asyncio.run(session.get_items()))
