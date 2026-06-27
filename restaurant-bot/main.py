@@ -13,6 +13,9 @@ from my_agents.billing_agent import billing_agent
 from my_agents.order_agent import order_agent
 from my_agents.technical_agent import technical_agent
 
+# 페이지 설정 (가장 먼저 호출되어야 함)
+st.set_page_config(page_title="용문객잔 (龍門客棧)", page_icon="🐉", layout="centered")
+
 # OpenAI 클라이언트 초기화
 client = OpenAI()
 
@@ -42,7 +45,9 @@ async def paint_history():
     messages = await session.get_items()
     for message in messages:
         if "role" in message:
-            with st.chat_message(message["role"]):
+            # 역할에 따른 무협풍 아바타 설정
+            avatar = "⚔️" if message["role"] == "user" else "🏮"
+            with st.chat_message(message["role"], avatar=avatar):
                 if message["role"] == "user":
                     st.write(message["content"])
                 else:
@@ -58,7 +63,7 @@ asyncio.run(paint_history())
 # 에이전트를 실행하고 출력을 스트리밍하는 함수
 async def run_agent(message):
 
-    with st.chat_message("ai"):
+    with st.chat_message("assistant", avatar="🏮"):
         text_placeholder = st.empty()  # 텍스트가 실시간으로 입력되는 효과를 주기 위한 빈 컨테이너
         response = ""
 
@@ -114,7 +119,7 @@ message = st.chat_input(
 if message:
 
     if message:
-        with st.chat_message("human"):
+        with st.chat_message("user", avatar="⚔️"):
             st.write(message)
         # 에이전트 비동기 실행 루프 호출
         asyncio.run(run_agent(message))
@@ -123,8 +128,11 @@ if message:
 # 사이드바 설정 (대화 기록 리셋 기능 및 현재 원시 세션 데이터 조회 기능 제공)
 with st.sidebar:
     st.title("용문객잔 (龍門客棧) 🐉")
-    reset = st.button("기억 초기화 (Reset)")
+    st.markdown("---")
+    reset = st.button("📜 기억 초기화 (Reset Memory)")
     if reset:
         asyncio.run(session.clear_session())
-    st.write("대협의 발자취:")
-    st.write(asyncio.run(session.get_items()))
+    
+    st.markdown("---")
+    with st.expander("대협의 발자취 기록부 (디버그용)"):
+        st.write(asyncio.run(session.get_items()))
