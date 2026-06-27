@@ -1,0 +1,16 @@
+# Python 가상 환경 및 캐시
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# 환경 변수 및 비밀 키 (Git에 커밋되지 않도록 무시)
+.env
+.streamlit/secrets.toml
+.streamlit/
+
+# 로컬 SQLite 데이터베이스
+*.db
+*.db-shm
+*.db-wal

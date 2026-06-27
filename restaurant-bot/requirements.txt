@@ -1,0 +1,6 @@
+# 용문객잔 Streamlit 봇 프로젝트 의존성 목록
+numpy>=2.3.2
+openai-agents[voice]>=0.2.8
+python-dotenv>=1.1.1
+sounddevice>=0.5.2
+streamlit>=1.48.1
