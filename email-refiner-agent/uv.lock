@@ -417,6 +417,8 @@ dependencies = [
     { name = "google-adk" },
     { name = "google-genai" },
     { name = "litellm" },
+    { name = "requests" },
+    { name = "sseclient-py" },
 ]
 
 [package.dev-dependencies]
@@ -429,6 +431,8 @@ requires-dist = [
     { name = "google-adk", specifier = ">=1.12.0" },
     { name = "google-genai", specifier = ">=1.31.0" },
     { name = "litellm", specifier = ">=1.76.0" },
+    { name = "requests", specifier = ">=2.34.2" },
+    { name = "sseclient-py", specifier = ">=1.9.0" },
 ]
 
 [package.metadata.requires-dev]
@@ -1872,6 +1876,14 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/a2/87/a6771e1546d97e7e041b6ae58d80074f81b7d5121207425c964ddf5cfdbd/sniffio-1.3.1.tar.gz", hash = "sha256:f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc", size = 20372, upload-time = "2024-02-25T23:20:04.057Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e9/44/75a9c9421471a6c4805dbf2356f7c181a29c1879239abab1ea2cc8f38b40/sniffio-1.3.1-py3-none-any.whl", hash = "sha256:2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2", size = 10235, upload-time = "2024-02-25T23:20:01.196Z" },
+]
+
+[[package]]
+name = "sseclient-py"
+version = "1.9.0"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/4d/2e/59920f7d66b7f9932a3d83dd0ec53fab001be1e058bf582606fe414a5198/sseclient_py-1.9.0-py3-none-any.whl", hash = "sha256:340062b1587fc2880892811e2ab5b176d98ef3eee98b3672ff3a3ba1e8ed0f6f", size = 8351, upload-time = "2026-01-02T23:39:30.995Z" },
 ]
 
 [[package]]
