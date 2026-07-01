@@ -36,15 +36,14 @@ def before_model_callback(
         )
 
         try:
-            # LiteLlm 판별기를 호출하여 차단 결정
-            response = MODEL.generate(
-                contents=[
-                    types.Content(
-                        parts=[types.Part(text=validation_prompt)], role="user"
-                    )
-                ]
+            import openai
+            client = openai.OpenAI()
+            response = client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[{"role": "user", "content": validation_prompt}],
+                max_tokens=10,
             )
-            decision = response.content.parts[0].text.strip().upper()
+            decision = response.choices[0].message.content.strip().upper()
             if "BLOCK" in decision:
                 return LlmResponse(
                     content=types.Content(

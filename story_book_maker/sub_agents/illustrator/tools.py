@@ -66,6 +66,9 @@ async def generate_illustrations(tool_context: ToolContext):
         artifact=artifact,
     )
 
+    # UI 렌더링용 base64 캐싱 (에이전트의 after_model_callback에서 가져감)
+    tool_context.state["last_image_base64"] = image.data[0].b64_json
+
     # State에 현재 페이지 정보를 저장하여 누적 관리
     pages_data = tool_context.state.get("pages_data", {})
     pages_data[str(page_number)] = {"text": text, "image_file": filename}
