@@ -189,4 +189,8 @@ async def combine_story_book(tool_context: ToolContext):
         artifact=artifact,
     )
 
+    # UI 노출을 위해 base64로 캐싱
+    final_base64 = base64.b64encode(output_data).decode("utf-8")
+    tool_context.state["final_image_base64"] = final_base64
+
     return "최종 동화책 병합 이미지(story_book_final.png) 생성 완료!"

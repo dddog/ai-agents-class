@@ -17,6 +17,7 @@ class PagePlan(BaseModel):
 
 from google.adk.agents.callback_context import CallbackContext
 from google.adk.models.llm_response import LlmResponse
+from google.adk.models.llm_request import LlmRequest
 from google.genai import types
 import json
 import re
@@ -54,10 +55,42 @@ async def format_story_output(
     return llm_response
 
 
+async def prepare_story_writer_input(
+    callback_context: CallbackContext,
+    llm_request: LlmRequest,
+):
+    pages_data = callback_context.state.get("pages_data", {})
+    if pages_data:
+        try:
+            existing_pages = [int(p) for p in pages_data.keys()]
+            next_page = max(existing_pages) + 1
+        except Exception:
+            next_page = len(pages_data) + 1
+    else:
+        next_page = 1
+
+    if next_page > 5:
+        next_page = 5
+
+    if llm_request.contents:
+        last_message = llm_request.contents[-1]
+        if last_message.role == "user" and last_message.parts:
+            orig_text = last_message.parts[0].text
+            augmented_text = (
+                f"[입력 양식]\n"
+                f"- 현재 작성해야 할 대상 페이지 번호: {next_page}\n"
+                f"- 기존에 작성 완료된 페이지 데이터: {json.dumps(pages_data, ensure_ascii=False)}\n"
+                f"- 사용자 입력 원문 줄거리: {orig_text}\n"
+            )
+            last_message.parts[0].text = augmented_text
+    return None
+
+
 story_writer_agent = Agent(
     name="StoryWriterAgent",
     description=STORY_WRITER_DESCRIPTION,
     instruction=STORY_WRITER_PROMPT,
     model=MODEL,
+    before_model_callback=prepare_story_writer_input,
     after_model_callback=format_story_output,
 )
