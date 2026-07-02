@@ -13,8 +13,8 @@ def before_producer_callback(
     llm_request: LlmRequest,
 ):
     # 사용자가 스토리 주제를 입력하면 진행 상태를 세팅하여 UI/로그에 반영
-    callback_context.state["progress_status"] = "어린이 동화책 만들기 시작"
-    print(f"✅ 상태 업데이트: {callback_context.state['progress_status']}")
+    # callback_context.state["progress_status"] = "어린이 동화책 만들기 시작"
+    # print(f"✅ 상태 업데이트: {callback_context.state['progress_status']}")
     return None
 
 producer_agent = Agent(
