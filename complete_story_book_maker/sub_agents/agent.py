@@ -1,6 +1,7 @@
 from google.adk.agents import SequentialAgent
 from .story_writer.agent import story_writer_agent
 from .illustrator.agent import parallel_illustrator_agent
+from .book_assembler.agent import book_assembler_agent
 
 pipeline_agent = SequentialAgent(
     name="StoryBookPipelineAgent",
@@ -8,5 +9,6 @@ pipeline_agent = SequentialAgent(
     sub_agents=[
         story_writer_agent,
         parallel_illustrator_agent,
+        book_assembler_agent,
     ],
 )

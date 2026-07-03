@@ -11,14 +11,20 @@ MODEL = LiteLlm(model="openai/gpt-4o")
 # 콜백 빌더 함수 (클로저 바인딩)
 def make_before_callback(page_num: int):
     def callback(callback_context: CallbackContext, llm_request: LlmRequest):
-        callback_context.state["progress_status"] = f"이미지 {page_num}/5 생성 중..."
+        target_status = f"이미지 {page_num}/5 생성 중..."
+        if callback_context.state.get("progress_status") == target_status:
+            return None
+        callback_context.state["progress_status"] = target_status
         print(f"⏳ [진행상황] {callback_context.state['progress_status']}")
         return None
     return callback
 
 def make_after_callback(page_num: int):
     def callback(callback_context: CallbackContext, llm_response: LlmResponse):
-        callback_context.state["progress_status"] = f"이미지 {page_num}/5 생성 완료"
+        target_status = f"이미지 {page_num}/5 생성 완료"
+        if callback_context.state.get("progress_status") == target_status:
+            return llm_response
+        callback_context.state["progress_status"] = target_status
         print(f"✅ [진행상황] {callback_context.state['progress_status']}")
         return llm_response
     return callback

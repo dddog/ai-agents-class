@@ -71,7 +71,7 @@ async def generate_page_illustration(tool_context: ToolContext, page_number: int
     
     final_prompt = f"{system_instruction}{style_guide}{character_definition}{current_scene}"
     
-    print(f"🎨 [Illustrator Page {page_number}] 이미지 생성 요청 중 (모델: gpt-image-1)")
+    # print(f"🎨 [Illustrator Page {page_number}] 이미지 생성 요청 중 (모델: gpt-image-1)")
     
     # 5. gpt-image-1 모델 API 호출
     image = client.images.generate(
